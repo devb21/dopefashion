@@ -6,9 +6,18 @@ var ejs = require('ejs')
 var mysql = require('mysql2')
 
 
+const bodyParser = require('body-parser');
+
 // Create the express application object
 const app = express()
 const port = 8000
+
+
+// Use body-parser to parse form submissions
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
 
 // Tell Express that we want to use EJS as the templating engine
 app.set('view engine', 'ejs')
