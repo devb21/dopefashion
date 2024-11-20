@@ -10,6 +10,7 @@ GRANT ALL PRIVILEGES ON dopefashion.* TO ' dope_fashion_app'@'localhost';
 
 
 
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
