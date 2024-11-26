@@ -16,12 +16,18 @@
               <li><a href="/">Home</a></li>
               <li><a href="/products">Products</a></li>
               <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
-              <li><a href="/account">Account</a></li>
-              <li><a href="/users/register">Register</a></li>
-              <li><a href="/users/login">Login</a></li>
+             <!-- <li><a href="/contact">Contact</a></li>
+              <li><a href="/account">Account</a></li> -->
+              <% if (user) { %>  <!-- Use 'user' passed to the view -->
+                <li><a href="/users/logout">Logout</a></li>
+                <li>Hello, <%= user.name %></li>
+              <% } else { %>
+                <li><a href="/users/register">Register</a></li>
+                <li><a href="/users/login">Login</a></li>
+              <% } %>
             </ul>
           </nav>
+          
           <a href="/cart"><img src="/images/cart.png" width="30px" height="30px" alt="Cart"></a>
           <img src="/images/menu.png" onclick="menutoggle()" class="menu-icon" alt="Menu Icon">
         </div>
@@ -38,7 +44,7 @@
       </div>
     </div>
 
-    <!------------------ featured categories --------------->
+    <!-- Featured Categories -->
     <div class="categories">
       <div class="small-container">
         <div class="row">
@@ -55,41 +61,46 @@
       </div>
     </div>
 
-    <!-------------- Our Featured Products -------------->
+    <h2 class="title">Featured Products</h2>
     <div class="small-container">
-      <h2 class="title">Featured Products</h2>
-      <div class="row">
-        <% featuredProducts.forEach(product => { %>
-          <div class="col-4">
-            <a href="/products/<%= product.id %>"><img src="/images/<%= product.image %>" alt="<%= product.name %>"></a>
-            <h4><a href="/products/<%= product.id %>"><%= product.name %></a></h4>
-            <div class="rating">
-              <% for (let i = 0; i < 5; i++) { %>
-                <i class="fa <%= i < product.rating ? 'fa-star' : 'fa-star-o' %>"></i>
-              <% } %>
-            </div>
-            <p>$<%= product.price %></p>
-          </div>
-        <% }) %>
+<div class="row">
+  <% featuredProducts.forEach(product => { %>
+    <div class="col-4">
+      <a href="/products/<%= product.id %>">
+        <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+      </a>
+      <h4><%= product.name %></h4>
+      <div class="rating">
+        <% for (let i = 0; i < 5; i++) { %>
+          <i class="fa <%= i < product.rating ? 'fa-star' : 'fa-star-o' %>"></i>
+        <% } %>
       </div>
-      <h2 class="title">Latest Products</h2>
-      <div class="row">
-        <% latestProducts.forEach(product => { %>
-          <div class="col-4">
-            <a href="/products/<%= product.id %>"><img src="/images/<%= product.image %>" alt="<%= product.name %>"></a>
-            <h4><%= product.name %></h4>
-            <div class="rating">
-              <% for (let i = 0; i < 5; i++) { %>
-                <i class="fa <%= i < product.rating ? 'fa-star' : 'fa-star-o' %>"></i>
-              <% } %>
-            </div>
-            <p>$<%= product.price %></p>
-          </div>
-        <% }) %>
-      </div>
+      <p>$<%= product.price %></p>
     </div>
+  <% }) %>
+</div>
 
-    <!----------Footer--------------->
+<h2 class="title">Latest Products</h2>
+<div class="row">
+  <% latestProducts.forEach(product => { %>
+    <div class="col-4">
+      <a href="/products/<%= product.id %>">
+        <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+      </a>
+      <h4><%= product.name %></h4>
+      <div class="rating">
+        <% for (let i = 0; i < 5; i++) { %>
+          <i class="fa <%= i < product.rating ? 'fa-star' : 'fa-star-o' %>"></i>
+        <% } %>
+      </div>
+      <p>$<%= product.price %></p>
+    </div>
+  <% }) %>
+</div>
+</div>
+
+
+    <!-- Footer -->
     <div class="footer">
       <div class="container">
         <div class="row">
@@ -125,7 +136,7 @@
           </div>
         </div>
         <hr>
-        <p class="copyright">Copyright 2020 - Easy Tutorials</p>
+        <p class="copyright">Copyright 2024 - Dope Fashion</p>
       </div>
     </div>
   </body>

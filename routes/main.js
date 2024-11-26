@@ -1,14 +1,10 @@
-// main.js
-
 const express = require('express');
 const router = express.Router();
 
-// Route for /about
 router.get('/about', function(req, res, next) {
     res.render('about.ejs');
 });
 
-// Route for /
 router.get('/', (req, res) => {
     const featuredProducts = [
         { id: 1, name: 'Red Printed T-Shirt', image: 'product-1.jpg', price: 50, rating: 4 },
@@ -31,5 +27,4 @@ router.get('/', (req, res) => {
     });
 });
 
-// Export the router object to be used by app.js
 module.exports = router;

@@ -3,9 +3,52 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
-  font-family: 'Poppins', sans-serif;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+  /*text-align: left; */
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
 a{
   text-decoration: none;
   color: #555;
@@ -545,7 +588,7 @@ th:last-child{
 }
 
 form input{
-  width: 100%;
+  width: 30%;
   height: 30px;
   margin: 10px 0;
   padding: 0 10px;
